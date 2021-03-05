@@ -1,5 +1,2 @@
-module.exports = {
-    images: {
-        domains: ['www.ellisenobun.com'],
-    },
-}
+const withImages = require('next-images');
+module.exports = withImages();
