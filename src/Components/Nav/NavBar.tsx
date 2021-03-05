@@ -63,7 +63,7 @@ export const NavBar: React.FC<NavBarProps> = () => {
    transition="ease"
    transitionDuration="0.25s">
    <Box maxW={theme.sizes.width} p={0} mx="auto">
-    {windowSize.width > 750 ? (
+    {windowSize.width! > 750 ? (
      <Stack direction="row" align="center" px={10} py={4} spacing={5}>
       <Spacer />
       <Stack as="nav" align="center" direction="row" spacing={3}>
