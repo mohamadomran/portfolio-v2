@@ -11,7 +11,7 @@ import {
  useTheme,
 } from '@chakra-ui/react';
 
-import { SectionListItem } from 'Sections/SectionListItem';
+import { SectionListItem } from 'Components/SectionListItem';
 
 type ProjectProps = {
  title: string;

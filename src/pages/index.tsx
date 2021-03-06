@@ -7,13 +7,13 @@ import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 import { Icon } from 'Components/Icon';
 import { Footer } from 'Components/Footer';
-import { About } from 'Sections/About';
+import { About } from 'Components/About';
 import { Layout } from 'layouts';
-import { Profile } from 'Sections/Profile';
+import { Profile } from 'Components/Profile';
 import { NavBar } from 'Components/Nav/NavBar';
 import { Experience } from 'Components/Experience';
 import { Project } from 'Components/Project';
-import { SectionList } from 'Sections/SectionList';
+import { SectionList } from 'Components/SectionList';
 
 const title = 'Mohamad Omran | Software Engineer';
 const description =

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Heading, Tag, Text, useColorModeValue, useTheme } from '@chakra-ui/react';
-import { SectionListItem } from 'Sections/SectionListItem';
+import { SectionListItem } from 'Components/SectionListItem';
 
 type JobProps = {
  company: string;

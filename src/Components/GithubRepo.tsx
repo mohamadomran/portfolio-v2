@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Button, Heading, Stack, Text, useColorModeValue, useTheme } from '@chakra-ui/react';
 
-import { SectionListItem } from 'Sections/SectionListItem';
+import { SectionListItem } from 'Components/SectionListItem';
 
 type GithubRepoProsp = {
  name: string;
