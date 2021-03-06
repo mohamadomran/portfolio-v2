@@ -11,11 +11,20 @@ export const About: React.FC<AboutProps> = ({ children }) => {
 
  const boxShadow = useColorModeValue(theme.shadows.boxLight, theme.shadows.boxDark);
 
- const headerColor = useColorModeValue(theme.colors.black, theme.colors.white);
+ const headerColor = useColorModeValue(
+  theme.colors.brand.richBlack,
+  theme.colors.brand.platinumWhite,
+ );
 
- const background = useColorModeValue(theme.colors.white, theme.colors.dark.background.card);
+ const background = useColorModeValue(
+  theme.colors.brand.platinumWhite,
+  theme.colors.dark.background.card,
+ );
 
- const textColor = useColorModeValue(theme.colors.black, theme.colors.white);
+ const textColor = useColorModeValue(
+  theme.colors.brand.richBlack,
+  theme.colors.brand.platinumWhite,
+ );
 
  return (
   <SubSection id="about">

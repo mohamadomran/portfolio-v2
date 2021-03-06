@@ -10,7 +10,10 @@ type SectionListProps = {
 
 export const SectionList: React.FC<SectionListProps> = ({ children, id, heading }) => {
  const theme = useTheme();
- const headerColor = useColorModeValue(theme.colors.dark.text.secondary, theme.colors.white);
+ const headerColor = useColorModeValue(
+  theme.colors.dark.text.secondary,
+  theme.colors.brand.platinumWhite,
+ );
 
  return (
   <SubSection id={id}>

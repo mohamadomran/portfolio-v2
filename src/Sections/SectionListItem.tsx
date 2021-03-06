@@ -8,7 +8,10 @@ type SectionListItemProps = {
 export const SectionListItem: React.FC<SectionListItemProps> = ({ children }) => {
  const theme = useTheme();
  const boxShadow = useColorModeValue(theme.shadows.boxLight, theme.shadows.boxDark);
- const background = useColorModeValue(theme.colors.white, theme.colors.dark.background.card);
+ const background = useColorModeValue(
+  theme.colors.brand.platinumWhite,
+  theme.colors.dark.background.card,
+ );
 
  return (
   <Stack
