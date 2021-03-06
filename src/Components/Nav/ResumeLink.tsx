@@ -4,23 +4,28 @@ import { FiFileText } from 'react-icons/fi';
 
 export const ResumeLink: React.FC = () => {
  const theme = useTheme();
- const boxShadow = useColorModeValue('4px 4px 9px #c9c9c9', '3px 3px 6px #000');
- const backgroundColor = useColorModeValue(theme.colors.red[500], theme.colors.red[500]);
- const color = useColorModeValue('white', 'black');
+ const boxShadow = useColorModeValue(
+  `0px 4px 8px ${theme.colors.brand.crayolaBlue}`,
+  `0px 4px 8px ${theme.colors.brand.lavaRed}`,
+ );
+ const backgroundColor = useColorModeValue(
+  theme.colors.brand.crayolaBlue,
+  theme.colors.brand.lavaRed,
+ );
 
  return (
   <Button
    as="a"
-   tabIndex={0}
+   tabIndex={5}
    size="md"
    borderRadius={8}
-   colorScheme={theme.colors.red[500]}
-   leftIcon={<FiFileText size="1.1em" color={color} />}
+   colorScheme={backgroundColor}
+   leftIcon={<FiFileText size="1.1em" color={theme.colors.brand.pureWhite} />}
    href="https://drive.google.com/file/d/1NKSJoyCuH_yN6LKPcn1nPWDFWIluhX-7/view?usp=sharing"
    target="_blank"
    rel="noopener"
    boxShadow={boxShadow}
-   color={color}
+   color={theme.colors.brand.pureWhite}
    fontFamily="Jetbrains Mono"
    backgroundColor={backgroundColor}>
    Resume

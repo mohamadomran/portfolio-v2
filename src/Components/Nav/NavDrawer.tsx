@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { FiX } from 'react-icons/fi';
-import { NavItems } from './NavBar';
+import { NavItems } from './NavItems';
 import { ResumeLink } from './ResumeLink';
 
 type NavDrawerProps = {
@@ -22,8 +22,11 @@ type NavDrawerProps = {
 
 export const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
  const theme = useTheme();
- const background = useColorModeValue(theme.colors.white, theme.colors.dark.background.card);
- const iconButtonColor = useColorModeValue(theme.colors.black, theme.colors.white);
+ const background = useColorModeValue(theme.colors.brand.pureWhite, theme.colors.brand.richBlack);
+ const iconButtonColor = useColorModeValue(
+  theme.colors.brand.crayolaBlue,
+  theme.colors.brand.lavaRed,
+ );
 
  const closeDrawer = () => {
   onClose();
@@ -38,7 +41,7 @@ export const NavDrawer: React.FC<NavDrawerProps> = ({ isOpen, onClose }) => {
        <Box align="right">
         <IconButton
          aria-label="Close Menu"
-         colorScheme={theme.colors.red[500]}
+         colorScheme={theme.colors.brand.lavaRed}
          icon={<FiX size="22px" color={iconButtonColor} />}
          variant="ghost"
          onClick={closeDrawer}

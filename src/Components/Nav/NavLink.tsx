@@ -11,8 +11,8 @@ type NavLinkProps = {
 export const NavLink: React.FC<NavLinkProps> = ({ children, target, style, label, ...props }) => {
  const theme = useTheme();
  const textColor = useColorModeValue(
-  theme.colors.dark.text.primary,
-  theme.colors.dark.text.primary,
+  theme.colors.brand.richBlack,
+  theme.colors.brand.platinumWhite,
  );
 
  const handleInput = () => {
@@ -43,7 +43,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ children, target, style, label
    height="30px"
    p={3}
    variant="ghost"
-   colorScheme={theme.colors.red[500]}
+   colorScheme={theme.colors.brand.lavaRed}
    onClick={handleInput}
    onTouchEnd={handleInput}
    onKeyDown={handleKeyInput}

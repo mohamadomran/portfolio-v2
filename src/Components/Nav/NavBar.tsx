@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
  Box,
- Text,
  IconButton,
  Spacer,
  Stack,
@@ -10,36 +9,32 @@ import {
  useTheme,
 } from '@chakra-ui/react';
 import { FiMenu } from 'react-icons/fi';
-import { useWindowSize } from '../../Hooks/useWindowSize';
-import { NavLink } from './NavLink';
-import { ResumeLink } from './ResumeLink';
-import { NavDrawer } from './NavDrawer';
+
+import { useWindowSize } from 'Hooks/useWindowSize';
 import { DarkModeToggle } from 'Utils/DarkModeToggle';
 
-type NavBarProps = {};
+import { ResumeLink } from './ResumeLink';
+import { NavDrawer } from './NavDrawer';
+import { NavItems } from './NavItems';
 
-export const NavItems: React.FC = () => {
- return (
-  <>
-   <NavLink target="about" style="text">
-    <Text fontFamily="Jetbrains Mono">About</Text>
-   </NavLink>
-   <NavLink target="experience" style="text">
-    <Text fontFamily="Jetbrains Mono">Experience</Text>
-   </NavLink>
-   <NavLink target="projects" style="text">
-    <Text fontFamily="Jetbrains Mono">Projects</Text>
-   </NavLink>
-  </>
- );
-};
-
-export const NavBar: React.FC<NavBarProps> = () => {
+export const NavBar: React.FC = () => {
  const theme = useTheme();
  const initialShadow = useColorModeValue('none', 'lg');
- const [boxShadow, setBoxShadow] = useState(initialShadow);
- const backgroundColor = useColorModeValue(theme.colors.white, theme.colors.dark.background.card);
- const iconButtonColor = useColorModeValue(theme.colors.black, theme.colors.white);
+ const [, setBoxShadow] = useState(initialShadow);
+
+ const backgroundColor = useColorModeValue(
+  theme.colors.brand.pureWhite,
+  theme.colors.brand.richBlack,
+ );
+ const iconButtonColor = useColorModeValue(
+  theme.colors.brand.crayolaBlue,
+  theme.colors.brand.lavaRed,
+ );
+ const boxShadow = useColorModeValue(
+  `0px 4px 16px ${theme.colors.brand.crayolaBlue}`,
+  `0px 4px 16px ${theme.colors.brand.lavaRed}`,
+ );
+
  const { isOpen, onOpen, onClose } = useDisclosure();
  const windowSize = useWindowSize();
 
@@ -47,7 +42,7 @@ export const NavBar: React.FC<NavBarProps> = () => {
   return window.scrollY > 20 ? setBoxShadow('lg') : setBoxShadow(initialShadow);
  };
 
- React.useEffect(() => {
+ useEffect(() => {
   window.addEventListener('scroll', handleScroll);
  }, []);
 
@@ -61,7 +56,7 @@ export const NavBar: React.FC<NavBarProps> = () => {
    zIndex={1}
    boxShadow={boxShadow}
    transition="ease"
-   transitionDuration="0.25s">
+   transitionDuration="0.15s">
    <Box maxW={theme.sizes.width} p={0} mx="auto">
     {windowSize.width! > 750 ? (
      <Stack direction="row" align="center" px={10} py={4} spacing={5}>
@@ -81,7 +76,7 @@ export const NavBar: React.FC<NavBarProps> = () => {
        aria-label="Open Menu"
        width="40px"
        borderRadius="10px"
-       colorScheme={theme.colors.red[500]}
+       colorScheme={iconButtonColor}
        icon={<FiMenu size="22px" color={iconButtonColor} />}
        variant="ghost"
        onClick={onOpen}
