@@ -11,7 +11,7 @@ import { About } from 'Sections/About';
 import { Layout } from 'layouts';
 import { Profile } from 'Sections/Profile';
 import { NavBar } from 'Components/Nav/NavBar';
-import { Job } from 'Components/Job';
+import { Experience } from 'Components/Experience';
 import { Project } from 'Components/Project';
 import { SectionList } from 'Sections/SectionList';
 
@@ -66,13 +66,13 @@ const IndexPage = () => {
     </About>
 
     <SectionList id="experience" heading="Experience">
-     <Job
+     <Experience
       company="Netways"
       title="Software Engineer"
       dates={{ start: '11/2018', end: '04/2021' }}
       tech={['Reactjs', 'Redux', 'Angular', 'CSS/SASS', 'Typescript', 'NodeJs']}
      />
-     <Job
+     <Experience
       company="IDTP - International Diamond Trading Platform"
       title="FrontEnd Developer"
       dates={{ start: '06/2018', end: '10/2018' }}

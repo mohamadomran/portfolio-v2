@@ -21,7 +21,7 @@ export const DarkModeToggle: React.FC = () => {
      <IconButton
       aria-label="enable dark mode"
       variant="ghost"
-      colorScheme={theme.colors.red[500]}
+      colorScheme={theme.colors.brand.lavaRed}
       color="black"
       icon={<FiMoon />}
       onClick={toggleColorMode}
@@ -30,7 +30,7 @@ export const DarkModeToggle: React.FC = () => {
      <IconButton
       aria-label="enable light mode"
       variant="ghost"
-      colorScheme={theme.colors.red[500]}
+      colorScheme={theme.colors.brand.lavaRed}
       color="white"
       icon={<FiSun />}
       onClick={toggleColorMode}

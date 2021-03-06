@@ -37,6 +37,15 @@ export const theme = extendTheme({
     card: '#000',
    },
   },
+  brand: {
+   lavaRed: '#C31D28',
+   maizeYellow: '#FDCD49',
+   platinumWhite: '#E6E8E6',
+   pureWhite: '#F5F5F5',
+   crayolaBlue: '#3772FF',
+   richBlack: '#080708',
+   raisinBlack: '#211C21',
+  },
  },
  fonts,
  breakpoints,
@@ -47,7 +56,7 @@ export const theme = extendTheme({
  styles: {
   global: props => ({
    'html, body': {
-    bg: mode('white', '#171717')(props),
+    bg: mode(theme.colors.brand.platinumWhite, '#171717')(props),
     color: mode('#111', '#fff')(props),
    },
   }),
