@@ -22,7 +22,7 @@ export const Profile: React.FC<ProfileProps> = ({ name, contact }) => {
      <Image
       w="80%"
       maxW="200px"
-      src={require('../public/profile.jpg')}
+      src="images/profile.jpg"
       borderRadius="full"
       alt={`portrait of ${name}`}
      />

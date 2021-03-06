@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import Head from 'next/head';
 import { Box, Text } from '@chakra-ui/react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
@@ -14,7 +16,8 @@ import { Project } from 'Components/Project';
 import { SectionList } from 'Sections/SectionList';
 
 const title = 'Mohamad Omran | Software Engineer';
-const description = 'I speedrun bug-fixing.';
+const description =
+ 'Mohamad Omran is from Beirut, Lebanon where he works as a Software Engineer at Netways. In his spare time, Mohamad enjoys drawing and a bit of racing videogames. Mohamad likes to speedrun bug-fixing and he hates talking in 3rd person mode.';
 
 const contactInfo = (
  <>
@@ -29,6 +32,15 @@ const contactInfo = (
 );
 
 const IndexPage = () => {
+ const [repositories, setRepositories] = useState([]);
+
+ useEffect(() => {
+  axios.get('https://api.github.com/users/mohamadomran/repos?sort=updated').then(res => {
+   setRepositories(res.data);
+   console.log(res.data);
+  });
+ }, []);
+
  return (
   <>
    <a id="skip" aria-label="skip navigation bar" href="#profile"></a>
@@ -57,7 +69,7 @@ const IndexPage = () => {
      <Job
       company="Netways"
       title="Software Engineer"
-      dates={{ start: '11/2018', end: 'Present' }}
+      dates={{ start: '11/2018', end: '04/2021' }}
       tech={['Reactjs', 'Redux', 'Angular', 'CSS/SASS', 'Typescript', 'NodeJs']}
      />
      <Job
