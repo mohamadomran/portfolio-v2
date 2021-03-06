@@ -11,12 +11,11 @@ type JobProps = {
 
 export const Experience: React.FC<JobProps> = ({ company, title, dates, tech }) => {
  const theme = useTheme();
- const tagBackground = useColorModeValue(theme.colors.brand.lavaRed, theme.colors.brand.lavaRed);
- const tagColor = useColorModeValue(theme.colors.brand.platinumWhite, theme.colors.brand.richBlack);
- const textColor = useColorModeValue(
-  theme.colors.brand.richBlack,
-  theme.colors.brand.platinumWhite,
+ const tagBackground = useColorModeValue(
+  theme.colors.brand.maizeYellow,
+  theme.colors.brand.maizeYellow,
  );
+ const textColor = useColorModeValue(theme.colors.brand.richBlack, theme.colors.brand.pureWhite);
 
  return (
   <SectionListItem>
@@ -26,20 +25,22 @@ export const Experience: React.FC<JobProps> = ({ company, title, dates, tech }) 
     </Text>
    </Heading>
    <Flex justify="space-between" wrap="wrap" align="center">
-    <Text color={textColor} mr="30%" fontFamily="Jetbrains Mono">
+    <Text color={textColor} mr="30%" fontFamily="Jetbrains Mono" fontSize={[14, 18]}>
      {title}
     </Text>
-    <Text color={textColor} fontFamily="Jetbrains Mono">{`${dates.start} to ${dates.end}`}</Text>
+    <Text
+     color={textColor}
+     fontFamily="Jetbrains Mono"
+     fontSize={[14, 16]}>{`${dates.start} to ${dates.end}`}</Text>
    </Flex>
    <Flex as="ul" aria-label="technologies used" direction="row" wrap="wrap">
     {tech?.map(tag => (
      <Tag
       as="li"
       key={tag}
-      color={tagColor}
-      mr={2}
-      mt={2}
-      colorScheme="red"
+      color={theme.colors.brand.richBlack}
+      mr={4}
+      mt={4}
       fontFamily="Jetbrains Mono"
       backgroundColor={tagBackground}>
       {tag}

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import axios from 'axios';
 
 import Head from 'next/head';
-import { Box, Text } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 
 import { Icon } from 'Components/Icon';
@@ -14,6 +14,7 @@ import { NavBar } from 'Components/Nav/NavBar';
 import { Experience } from 'Components/Experience';
 import { Project } from 'Components/Project';
 import { SectionList } from 'Components/SectionList';
+import { GithubRepo } from 'Components/GithubRepo';
 
 const title = 'Mohamad Omran | Software Engineer';
 const description =
@@ -31,14 +32,22 @@ const contactInfo = (
  </>
 );
 
-const IndexPage = () => {
- const [repositories, setRepositories] = useState([]);
+interface Repo {
+ id: string;
+ name: string;
+ svn_url: string;
+ description: string;
+ createdat: string;
+ language: string;
+}
 
- useEffect(() => {
-  axios.get('https://api.github.com/users/mohamadomran/repos?sort=updated').then(res => {
-   setRepositories(res.data);
-   console.log(res.data);
-  });
+const IndexPage = () => {
+ const [repositories, setRepositories] = useState<Repo[]>();
+
+ useMemo(async () => {
+  const res = await axios.get('https://api.github.com/users/mohamadomran/repos?sort=updated');
+  setRepositories(res.data);
+  console.log(res.data);
  }, []);
 
  return (
@@ -111,7 +120,19 @@ const IndexPage = () => {
      />
     </SectionList>
 
-    <Box p={20} />
+    <SectionList id="GithubProjects" heading="Github Projects">
+     {repositories?.map(({ id, name, description, svn_url, language }: Repo) => {
+      return (
+       <GithubRepo
+        key={id}
+        name={name}
+        url={svn_url}
+        description={description}
+        language={language}
+       />
+      );
+     })}
+    </SectionList>
    </Layout>
 
    <Footer />

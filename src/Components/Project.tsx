@@ -60,7 +60,9 @@ export const Project: React.FC<ProjectProps> = ({ title, link, tech, description
 
      <Flex direction="column">
       <Image
-       maxW="300px"
+       py={4}
+       w="100%"
+       maxW="400px"
        src={imageUrl}
        borderWidth="medium"
        alt={`Photo of the website ${imageUrl}`}

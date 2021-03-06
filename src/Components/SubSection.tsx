@@ -1,10 +1,10 @@
+import React, { ReactNode } from 'react';
 import { Box } from '@chakra-ui/react';
-import React from 'react';
 
-type SubSectionProps = {
- children: React.ReactNode;
+interface SubSectionProps {
+ children: ReactNode;
  id?: string;
-};
+}
 
 export const SubSection: React.FC<SubSectionProps> = ({ children, id }) => {
  return (

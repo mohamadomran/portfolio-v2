@@ -1,16 +1,16 @@
 import React, { ReactNode } from 'react';
 import { Stack, useColorModeValue, useTheme } from '@chakra-ui/react';
 
-type SectionListItemProps = {
+interface SectionListItemProps {
  children?: ReactNode;
-};
+}
 
 export const SectionListItem: React.FC<SectionListItemProps> = ({ children }) => {
  const theme = useTheme();
  const boxShadow = useColorModeValue(theme.shadows.boxLight, theme.shadows.boxDark);
  const background = useColorModeValue(
   theme.colors.brand.platinumWhite,
-  theme.colors.dark.background.card,
+  theme.colors.brand.richBlack,
  );
 
  return (
