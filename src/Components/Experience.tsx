@@ -9,11 +9,14 @@ type JobProps = {
  tech?: string[];
 };
 
-export const Job: React.FC<JobProps> = ({ company, title, dates, tech }) => {
+export const Experience: React.FC<JobProps> = ({ company, title, dates, tech }) => {
  const theme = useTheme();
- const tagBackground = useColorModeValue(theme.colors.red[500], theme.colors.red[500]);
- const tagColor = useColorModeValue('white', 'black');
- const textColor = useColorModeValue('black', 'white');
+ const tagBackground = useColorModeValue(theme.colors.brand.lavaRed, theme.colors.brand.lavaRed);
+ const tagColor = useColorModeValue(theme.colors.brand.platinumWhite, theme.colors.brand.richBlack);
+ const textColor = useColorModeValue(
+  theme.colors.brand.richBlack,
+  theme.colors.brand.platinumWhite,
+ );
 
  return (
   <SectionListItem>

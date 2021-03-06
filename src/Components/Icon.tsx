@@ -10,11 +10,11 @@ interface IconProps {
 export const Icon: React.FC<IconProps> = ({ label, link, icon }) => {
  const theme = useTheme();
  const boxShadow = useColorModeValue(
-  '2px 2px 4px rgb(0 0 0 / 0.5)',
-  '2px 2px 4px rgb(0 0 0 / 0.5)', // make it red
+  `0px 4px 16px ${theme.colors.brand.crayolaBlue}`,
+  `0px 4px 16px ${theme.colors.brand.lavaRed}`,
  );
- const iconColor = useColorModeValue(theme.colors.black, theme.colors.black);
- const background = useColorModeValue(theme.colors.red[500], theme.colors.red[500]);
+
+ const background = useColorModeValue(theme.colors.brand.crayolaBlue, theme.colors.brand.lavaRed);
 
  return (
   <IconButton
@@ -22,7 +22,7 @@ export const Icon: React.FC<IconProps> = ({ label, link, icon }) => {
    aria-label={label}
    tabIndex={0}
    size="lg"
-   color={iconColor}
+   color={theme.colors.brand.pureWhite}
    backgroundColor={background}
    href={link}
    target="_blank"
