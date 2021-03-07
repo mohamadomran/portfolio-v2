@@ -15,7 +15,7 @@ const DARK_BOX_SHADOW =
 const LIGHT_BOX_SHADOW =
  '0px 1px 2px rgb(55 114 225 / 0.9), 0px 2px 4px rgb(55 114 225 / 0.9), 0px 4px 8px rgb(55 114 225 / 0.9), 0px 8px 16px rgb(55 114 225 / 0.5)';
 
-export const theme = extendTheme({
+export const theme: any = extendTheme({
  colors: {
   brand: {
    lavaRed: '#C31D28',
