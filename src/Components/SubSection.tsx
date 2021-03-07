@@ -8,7 +8,7 @@ interface SubSectionProps {
 
 export const SubSection: React.FC<SubSectionProps> = ({ children, id }) => {
  return (
-  <Box as="section" id={id} alignItems="center" justifyContent="center" py={20}>
+  <Box as="section" id={id} alignItems="center" justifyContent="center" py={12}>
    {children}
   </Box>
  );

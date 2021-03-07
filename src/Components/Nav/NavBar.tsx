@@ -13,7 +13,6 @@ import { FiMenu } from 'react-icons/fi';
 import { useWindowSize } from 'Hooks/useWindowSize';
 import { DarkModeToggle } from 'Utils/DarkModeToggle';
 
-import { ResumeLink } from './ResumeLink';
 import { NavDrawer } from './NavDrawer';
 import { NavItems } from './NavItems';
 
@@ -64,7 +63,7 @@ export const NavBar: React.FC = () => {
       <Stack as="nav" align="center" direction="row" spacing={3}>
        <NavItems />
       </Stack>
-      <ResumeLink />
+
       <DarkModeToggle />
      </Stack>
     ) : (

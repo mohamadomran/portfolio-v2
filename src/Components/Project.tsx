@@ -5,31 +5,26 @@ import {
  Heading,
  Stack,
  Tag,
- Image,
  Text,
  useColorModeValue,
  useTheme,
 } from '@chakra-ui/react';
+import { FaArrowRight } from 'react-icons/fa';
 
 import { SectionListItem } from 'Components/SectionListItem';
 
 type ProjectProps = {
  title: string;
  link: string;
- imageUrl: string;
  tech?: string[];
  description: string;
 };
 
-export const Project: React.FC<ProjectProps> = ({ title, link, tech, description, imageUrl }) => {
+export const Project: React.FC<ProjectProps> = ({ title, link, tech, description }) => {
  const theme = useTheme();
 
- const boxShadow = useColorModeValue('4px 4px 9px black', '4px 4px 9px black');
- const tagBackground = useColorModeValue(theme.colors.brand.lavaRed, theme.colors.brand.lavaRed);
- const tagColor = useColorModeValue('white', 'black');
- const textColor = useColorModeValue('black', 'white');
- const buttonColor = useColorModeValue(theme.colors.brand.lavaRed, theme.colors.brand.lavaRed);
- const buttonTextColor = useColorModeValue('white', 'black');
+ const textColor = useColorModeValue(theme.colors.brand.richBlack, theme.colors.brand.pureWhite);
+ const buttonColor = useColorModeValue(theme.colors.brand.crayolaBlue, theme.colors.brand.lavaRed);
 
  return (
   <SectionListItem>
@@ -41,42 +36,36 @@ export const Project: React.FC<ProjectProps> = ({ title, link, tech, description
      {description}
     </Text>
     <Flex justify="space-between" align="flex-end" direction="row" wrap="wrap">
-     <Flex as="ul" aria-label="technologies used" direction="row" wrap="wrap">
+     <Flex as="ul" aria-label="technologies used" direction="row" wrap="wrap" w="80%">
       {tech?.map(tag => (
        <Tag
         as="li"
         size="lg"
         key={tag}
-        color={tagColor}
+        color={theme.colors.brand.richBlack}
         mr={2}
         mt={2}
         maxH={1}
         fontFamily="Jetbrains Mono"
-        backgroundColor={tagBackground}>
+        backgroundColor={theme.colors.brand.maizeYellow}>
         {tag}
        </Tag>
       ))}
      </Flex>
-
      <Flex direction="column">
-      <Image
-       py={4}
-       w="100%"
-       maxW="400px"
-       src={imageUrl}
-       borderWidth="medium"
-       alt={`Photo of the website ${imageUrl}`}
-      />
       <Button
        as="a"
+       my={4}
+       size="md"
+       borderRadius={8}
+       colorScheme={buttonColor}
+       rightIcon={<FaArrowRight size="1.1em" color={theme.colors.brand.pureWhite} />}
        href={link}
        target="_blank"
        rel="noopener"
-       color={buttonTextColor}
-       boxShadow={boxShadow}
-       borderRadius={8}
-       mt={5}
-       background={buttonColor}>
+       color={theme.colors.brand.pureWhite}
+       fontFamily="Jetbrains Mono"
+       backgroundColor={buttonColor}>
        Go To Project
       </Button>
      </Flex>

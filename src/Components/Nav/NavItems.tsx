@@ -15,6 +15,9 @@ export const NavItems: React.FC = () => {
    <NavLink target="projects" style="text">
     <Text fontFamily="Jetbrains Mono">Projects</Text>
    </NavLink>
+   <NavLink target="githubProjects" style="text">
+    <Text fontFamily="Jetbrains Mono">Github Projects</Text>
+   </NavLink>
   </>
  );
 };

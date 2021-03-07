@@ -11,10 +11,7 @@ type JobProps = {
 
 export const Experience: React.FC<JobProps> = ({ company, title, dates, tech }) => {
  const theme = useTheme();
- const tagBackground = useColorModeValue(
-  theme.colors.brand.maizeYellow,
-  theme.colors.brand.maizeYellow,
- );
+
  const textColor = useColorModeValue(theme.colors.brand.richBlack, theme.colors.brand.pureWhite);
 
  return (
@@ -37,12 +34,13 @@ export const Experience: React.FC<JobProps> = ({ company, title, dates, tech }) 
     {tech?.map(tag => (
      <Tag
       as="li"
+      size="md"
       key={tag}
       color={theme.colors.brand.richBlack}
       mr={4}
       mt={4}
       fontFamily="Jetbrains Mono"
-      backgroundColor={tagBackground}>
+      backgroundColor={theme.colors.brand.maizeYellow}>
       {tag}
      </Tag>
     ))}

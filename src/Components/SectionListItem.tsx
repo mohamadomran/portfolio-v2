@@ -8,10 +8,7 @@ interface SectionListItemProps {
 export const SectionListItem: React.FC<SectionListItemProps> = ({ children }) => {
  const theme = useTheme();
  const boxShadow = useColorModeValue(theme.shadows.boxLight, theme.shadows.boxDark);
- const background = useColorModeValue(
-  theme.colors.brand.platinumWhite,
-  theme.colors.brand.richBlack,
- );
+ const background = useColorModeValue(theme.colors.brand.pureWhite, theme.colors.brand.richBlack);
 
  return (
   <Stack

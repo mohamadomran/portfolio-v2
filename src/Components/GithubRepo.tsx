@@ -2,21 +2,18 @@ import React from 'react';
 import { Flex, Button, Heading, Stack, Text, useColorModeValue, useTheme } from '@chakra-ui/react';
 
 import { SectionListItem } from 'Components/SectionListItem';
+import { FaArrowRight } from 'react-icons/fa';
 
-type GithubRepoProsp = {
+type GithubRepoProps = {
  name: string;
  url: string;
  description?: string;
- language: string;
 };
-export const GithubRepo: React.FC<GithubRepoProsp> = ({ name, url, language, description }) => {
+export const GithubRepo: React.FC<GithubRepoProps> = ({ name, url, description }) => {
  const theme = useTheme();
 
- const boxShadow = useColorModeValue('4px 4px 9px black', '4px 4px 9px black');
-
- const textColor = useColorModeValue('black', 'white');
- const buttonColor = useColorModeValue(theme.colors.brand.lavaRed, theme.colors.brand.lavaRed);
- const buttonTextColor = useColorModeValue('white', 'black');
+ const textColor = useColorModeValue(theme.colors.brand.richBlack, theme.colors.brand.pureWhite);
+ const buttonColor = useColorModeValue(theme.colors.brand.crayolaBlue, theme.colors.brand.lavaRed);
 
  return (
   <SectionListItem>
@@ -29,21 +26,22 @@ export const GithubRepo: React.FC<GithubRepoProsp> = ({ name, url, language, des
       {description}
      </Text>
     )}
-    <Text color={textColor} pb={2} fontFamily="Jetbrains Mono">
-     {language}
-    </Text>
+
     <Flex justify="space-between" align="flex-end" direction="row" wrap="wrap">
      <Flex direction="column">
       <Button
        as="a"
+       my={4}
+       size="md"
+       borderRadius={8}
+       colorScheme={buttonColor}
+       rightIcon={<FaArrowRight size="1.1em" color={theme.colors.brand.pureWhite} />}
        href={url}
        target="_blank"
        rel="noopener"
-       color={buttonTextColor}
-       boxShadow={boxShadow}
-       borderRadius={8}
-       mt={5}
-       background={buttonColor}>
+       color={theme.colors.brand.pureWhite}
+       fontFamily="Jetbrains Mono"
+       backgroundColor={buttonColor}>
        Go To Project
       </Button>
      </Flex>

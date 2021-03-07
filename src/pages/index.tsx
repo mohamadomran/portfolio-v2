@@ -38,7 +38,6 @@ interface Repo {
  svn_url: string;
  description: string;
  createdat: string;
- language: string;
 }
 
 const IndexPage = () => {
@@ -93,44 +92,32 @@ const IndexPage = () => {
      <Project
       title="ADDA Chatbot"
       link="https://www.tamm.abudhabi/en"
-      imageUrl="/images/adda-bot.png"
       tech={['React', 'Typescript', 'Redux', 'CSS', 'Bot-Framework', 'Rollup', 'Azure']}
       description="A Chatbot integrated into Abu Dhabi's Governmental Service Portal."
      />
      <Project
       title="Ethrai"
       link="https://ethrai.sa/"
-      imageUrl="/images/ethrai.png"
       tech={['Angular', 'Typescript', 'CSS']}
       description="An Online training Platform for the Institute of Public Adminstration in Saudi Arabia."
      />
      <Project
       title="SFDA"
       link="https://www.sfda.gov.sa/en"
-      imageUrl="/images/sfda.png"
       tech={['React', 'Typescript', 'Redux', 'SASS', 'NodeJs', 'Webpack', 'Azure']}
       description="Saudi Food And Drug Authority's public and employee's portal"
      />
      <Project
       title="PS-Platform"
       link="https://www.psplatform.com"
-      imageUrl="/images/psplatform.png"
       tech={['React', 'Redux', 'CSS']}
       description="International Diamond Trading Platform, it's the one stop shop for Precious Stones and Colored Diamonds"
      />
     </SectionList>
 
-    <SectionList id="GithubProjects" heading="Github Projects">
-     {repositories?.map(({ id, name, description, svn_url, language }: Repo) => {
-      return (
-       <GithubRepo
-        key={id}
-        name={name}
-        url={svn_url}
-        description={description}
-        language={language}
-       />
-      );
+    <SectionList id="githubProjects" heading="Github Projects">
+     {repositories?.map(({ id, name, description, svn_url }: Repo) => {
+      return <GithubRepo key={id} name={name} url={svn_url} description={description} />;
      })}
     </SectionList>
    </Layout>
